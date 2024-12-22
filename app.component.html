@@ -1,0 +1,60 @@
+<nav [ngClass]="'navbar'">
+    <img src="l1.png" alt="Shopping Hub Logo" />
+    <div [ngClass]="'container'">
+      <h1 [ngClass]="'project-title'">Find My <span>Space</span></h1>
+      <a routerLink="" [ngClass]="'home-link'">Home</a>
+      <div [ngClass]="'dropdown'">
+        <a routerLink="service" [ngClass]="'dropdown-link'">Service</a>
+        <div [ngClass]="'dropdown-menu'">
+          <a routerLink="rooms" routerLinkActive="active" [ngClass]="'menu-item'">Rooms</a>
+          <a routerLink="flats" routerLinkActive="active" [ngClass]="'menu-item'">Flats</a>
+        </div>
+      </div>
+      <a routerLink="/contact" [ngClass]="'contact-link'">Contact</a>
+      <a routerLink="/about-us" [ngClass]="'about-link'">About Us</a>
+      <a routerLink="/feedback" [ngClass]="'feedback-link'">Feedback</a>
+      <a class="username">{{user}}</a>
+    
+      <button   routerLink="/cart" [ngClass]="'dropbtn'">
+        <img src="h2.avif" alt="Menu" title="Menu">
+      </button>
+    
+      <div [ngClass]="'dropdown'">
+        <button [ngClass]="'dropbtn'">
+          <img src="login1.jpg" alt="Menu" title="Menu">
+        </button>
+        <div [ngClass]="'dropdown-content'">
+          <ul>
+            <!-- Show this when the user is logged in -->
+            <li *ngIf="user" class="dropdown-item">
+              <span class="welcome-text">Welcome, {{ user }}</span>
+              <button class="logout-btn" (click)="logout()">Logout</button>
+            </li>
+        
+            <!-- Show this when no user is logged in -->
+            <li *ngIf="!user" class="dropdown-item">
+              <a routerLink="/login" class="login-link">Login</a>
+              <!-- <a routerLink="/signup" class="signup-link">Sign Up</a> -->
+            </li>
+          </ul>
+        </div>
+        
+        
+      </div>
+    </div>
+  </nav>
+  <!-- Marquee Section -->
+  <div [ngClass]="'marquee-container'">
+    <marquee behavior="scroll" direction="left">
+      Welcome to <span>Find My Space!</span> Your trusted real estate partner Call us today for exclusive offers!
+    </marquee>
+  </div>
+  
+  <router-outlet></router-outlet>
+  
+  
+  <!-- <footer>
+    <p>A Real Estate Agent You Can Trust</p>
+    <p>© 2024 Real Estate. All rights reserved.</p>
+  </footer> -->
+  
